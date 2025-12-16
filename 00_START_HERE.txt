@@ -1,0 +1,57 @@
+╔════════════════════════════════════════════════════════════════╗
+║         WaterNet - Underwater Image Enhancement               ║
+║              Inference Only Setup (Clean Build)               ║
+╚════════════════════════════════════════════════════════════════╝
+
+📦 WHAT'S INCLUDED
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+✓ infer.py                  - Simple inference script (RECOMMENDED)
+✓ inference.py              - Main inference engine
+✓ pretrained-waternet.pt    - Pre-trained model weights (4.2 MB)
+✓ waternet/                 - Core model module
+✓ requirements.txt          - Python dependencies
+✓ QUICKSTART.md             - Usage examples
+✓ SETUP_COMPLETE.md         - Setup details
+
+🚀 QUICK START (3 STEPS)
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+1. Install dependencies:
+   pip install -r requirements.txt
+
+2. Prepare your images:
+   Place underwater images in a folder (e.g., ./images/)
+
+3. Run inference:
+   python3 infer.py --input ./images/ --output ./results/
+
+✨ OUTPUT
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+Enhanced images saved to: results/ folder
+Results are ready to use!
+
+📚 EXAMPLES
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+# Single image
+python3 infer.py --input photo.jpg
+
+# Batch process
+python3 infer.py --input ./underwater/ --output ./enhanced/
+
+# With before/after visualization
+python3 infer.py --input image.jpg --show-split
+
+# Custom weights
+python3 infer.py --input image.jpg --weights custom.pt
+
+✅ FEATURES
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+✓ Auto GPU/CPU detection
+✓ Batch processing (images & videos)
+✓ Before/after comparison
+✓ Multiple format support: JPG, PNG, BMP, GIF, MP4, AVI
+
+ℹ️ HELP
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+python3 infer.py --help
+
+See QUICKSTART.md for more details
