@@ -141,23 +141,11 @@ print(f"Total images/videos: {len(fdirs)}")
 # Figure out savedir ------
 
 # Create outputdir if not exists
-if not outputdir.exists():
-    outputdir.mkdir()
+outputdir.mkdir(exist_ok=True)
 
-# Determine savedir if --name not provided
+# Determine savedir
 if args.name is None:
-    numerical_subdirs = list(outputdir.glob("*"))
-
-    # isdecimal over isdigit and isnumeric
-    # see: https://datagy.io/python-isdigit/
-    numerical_subdirs = [
-        int(i.stem) for i in numerical_subdirs if (i.is_dir() and i.stem.isdecimal())
-    ]
-
-    if len(numerical_subdirs) == 0:
-        savedir = outputdir / "0"
-    else:
-        savedir = outputdir / str(max(numerical_subdirs) + 1)
+    savedir = outputdir
 else:
     savedir = outputdir / args.name
 

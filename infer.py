@@ -23,8 +23,9 @@ Examples:
     
     parser.add_argument('--input', type=str, required=True,
                         help='Path to input image/video or folder')
-    parser.add_argument('--output', type=str, default='output',
-                        help='Output folder (default: output)')
+    # Leave unset by default so inference.py uses its own output dir
+    parser.add_argument('--output', type=str, default=None,
+                        help='Optional output subfolder name (default: none)')
     parser.add_argument('--weights', type=str, default='waternet.pt',
                         help='Path to pretrained weights (default: waternet.pt)')
     parser.add_argument('--show-split', action='store_true',
@@ -48,9 +49,11 @@ Examples:
     cmd = [
         'python3', 'inference.py',
         '--source', str(input_path),
-        '--weights', str(weights_path),
-        '--name', args.output
+        '--weights', str(weights_path)
     ]
+
+    if args.output:
+        cmd.extend(['--name', args.output])
     
     if args.show_split:
         cmd.append('--show-split')
@@ -58,7 +61,7 @@ Examples:
     print(f"Running inference...")
     print(f"  Input: {input_path}")
     print(f"  Weights: {weights_path}")
-    print(f"  Output: {args.output}")
+    print(f"  Output: {args.output or 'output/'}")
     print()
     
     # Run the main inference script
